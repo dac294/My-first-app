@@ -14,3 +14,20 @@ Create and Activate a virtual environment
 
 conda activate my-first-env
 '''
+
+run the unemployment report:
+
+'''sh
+python unemployment.py 
+'''
+
+# Install packages:
+'''sh 
+pip install -r requirements.txt
+'''
+
+
+
+
+
+
