@@ -7,7 +7,7 @@ from plotly.express import line
 from operator import itemgetter
 import matplotlib.pyplot as plt
 
-from email_service import send_email
+from EMAIL_SERVICE.PY import send_email
 
 
 load_dotenv() # gto look in the .env file for any env vars 
@@ -42,6 +42,10 @@ data = parsed_response["data"]
 print("-------------------------")
 print("LATEST UNEMPLOYMENT RATE:")
 #print(data[0])
+
+latest_rate = data[0]['value']
+latest_date = data[0]["date"]
+
 print(f"{data[0]['value']}%", "as of", data[0]["date"])
 
 
@@ -77,7 +81,7 @@ fig.show()
 content = f"""
 <h1> Unemployment Report Email </h1>
 
-<p> Latest rate: {latest rate}% as of {latest_date} </p>
+<p> Latest rate: {latest_rate}% as of {latest_date} </p>
 """
 
 
