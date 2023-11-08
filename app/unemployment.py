@@ -7,7 +7,9 @@ from plotly.express import line #FIX THIS!!!!!!!
 from operator import itemgetter
 import matplotlib.pyplot as plt
 import os
-
+from dotenv import load_dotenv #AND FIX THIS!!!
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail 
 from email_service import send_email
 
 
