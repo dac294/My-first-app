@@ -38,8 +38,7 @@ def send_email(recipient_address=SENDER_ADDRESS, subject="[Shopping Cart App] Te
         print(err)
 
 
-
-
+user_address = input("please enter your email address:")
 
 
 
@@ -61,4 +60,4 @@ my_content = """
         <li>Strawberry</li>
     </ul>
 """
-send_email(html_content=my_content)
+send_email(html_content=my_content, recipient_address=user_address)
