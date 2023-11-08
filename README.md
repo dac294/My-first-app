@@ -21,6 +21,12 @@ run the unemployment report:
 python unemployment.py 
 '''
 
+ALTERNATIVE WITH IMPORTS
+'''sh
+python -m unemployment.py 
+'''
+
+
 # Install packages:
 '''sh 
 pip install -r requirements.txt
@@ -29,6 +35,10 @@ pip install -r requirements.txt
 # Interactive console:
 '''sh
 python -i
+'''
+
+'''SH
+python EMAIL_SERVICE.PY
 '''
 
 
