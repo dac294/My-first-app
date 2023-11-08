@@ -2,10 +2,9 @@
 
 def enlarge(n):
 	""" This is a docstrign.
-	This is a function enlarges ta  number 
+	This is a function enlarges a  number 
 	pass in n as a parameter.
 	Returns a larger version of the number.
-
 	"""
 	return float(n) * 100
 
