@@ -1,5 +1,9 @@
 import requests
+from getpass import getpass
 
+MAILGUN_SENDER_ADDRESS = getpass("MAILGUN SENDER ADDRESS: ") #  "example@georgetown.edu"
+MAILGUN_DOMAIN = getpass("MAILGUN DOMAIN: ") #  "sandbox______.mailgun.org"
+MAILGUN_API_KEY = getpass("MAILGUN API KEY: ")
 
 def send_email(recipient_address=MAILGUN_SENDER_ADDRESS, subject="[Shopping Cart App] Testing 123", html_content="<p>Hello World</p>"):
     print("SENDING EMAIL TO:", recipient_address)
