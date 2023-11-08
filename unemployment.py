@@ -8,7 +8,17 @@ from operator import itemgetter
 import matplotlib.pyplot as plt
 
 
-API_KEY = getpass("Please input your AlphaVantage API Key: ")
+
+load_dotenv() # gto look in the .env file for any env vars 
+
+
+#API_KEY = getpass("Please input your AlphaVantage API Key: ")
+API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
+
+#API_KEY = "abc123"
+
+#breakpoint()
+#quit()
 
 
 

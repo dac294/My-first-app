@@ -26,6 +26,10 @@ python unemployment.py
 pip install -r requirements.txt
 '''
 
+# Interactive console:
+'''sh
+python -i
+'''
 
 
 
