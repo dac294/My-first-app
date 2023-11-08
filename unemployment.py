@@ -7,6 +7,7 @@ from plotly.express import line
 from operator import itemgetter
 import matplotlib.pyplot as plt
 
+from email_service import send_email
 
 
 load_dotenv() # gto look in the .env file for any env vars 
@@ -73,6 +74,13 @@ rates = [float(d["value"]) for d in data]
 fig = line(x=dates, y=rates, title="United States Unemployment Rate over time", labels= {"x": "Month", "y": "Unemployment Rate"})
 fig.show()
 
+content = f"""
+<h1> Unemployment Report Email </h1>
+
+<p> Latest rate: {latest rate}% as of {latest_date} </p>
+"""
+
+
 
 
 sorted_data = sorted(data, key=(itemgetter("date"))) # sort first, then split
@@ -86,6 +94,12 @@ plt.xlabel("Month")
 plt.ylabel("Unemployment Rate")
 plt.grid(True)
 plt.show()
+
+
+
+
+
+
 
 #def format_pct(my_number:float) -> str:
 
