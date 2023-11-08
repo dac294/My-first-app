@@ -3,11 +3,12 @@ import requests
 import json
 from pprint import pprint
 from statistics import mean
-from plotly.express import line
+from plotly.express import line #FIX THIS!!!!!!!
 from operator import itemgetter
 import matplotlib.pyplot as plt
+import os
 
-from EMAIL_SERVICE.PY import send_email
+from email_service import send_email
 
 
 load_dotenv() # gto look in the .env file for any env vars 

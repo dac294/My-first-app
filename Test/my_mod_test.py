@@ -1,5 +1,5 @@
 
-from my_mod import enlarge
+from app.my_mod import enlarge
 
 def test_example():
 	assert 2+2 == 4

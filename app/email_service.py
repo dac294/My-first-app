@@ -32,12 +32,14 @@ def send_email(recipient_address=SENDER_ADDRESS, subject="[Shopping Cart App] Te
         print(response.status_code) #> 202 indicates SUCCESS
         print(response.body)
         print(response.headers)
-
+        return response.status_code
     except Exception as err:
         print(type(err))
         print(err)
+        return None
+    
 
-
+# integration test - can go check email 
 if __name == "__main__":
     #ONLY WANT TO DO IF RUNNING THIS FILE FROM COMMAND LINE 
     # NOT IF IMPORTING FUNCTION FROM THIS FILE
