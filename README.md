@@ -26,6 +26,10 @@ ALTERNATIVE WITH IMPORTS
 python -m unemployment.py 
 '''
 
+'''sh
+python my_mod.py
+'''
+
 
 # Install packages:
 '''sh 
@@ -41,6 +45,8 @@ python -i
 python EMAIL_SERVICE.PY
 '''
 
+
+# testing
 
 
 
