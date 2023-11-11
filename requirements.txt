@@ -9,3 +9,16 @@ matplotlib
 pandas
 
 sendgrid==6.5.0
+<<<<<<< Updated upstream
+=======
+dotenv
+
+pgeocode
+json
+
+Ipython
+
+# TEST
+
+pytest
+>>>>>>> Stashed changes
