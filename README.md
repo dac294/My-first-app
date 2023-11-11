@@ -1,53 +1,68 @@
-# My-first-app
+# my-first-app-inclass-2023
 
-as long as we are in the root dir of the repo:
 
-run the code:
-'''python my_script.py
 
-## setup
 
-Create and Activate a virtual environment 
+## Setup
 
-'''sh 
+Create and activate a virtual environment:
 
+```sh
+conda create -n my-first-env python=3.10
 
 conda activate my-first-env
-'''
-
-run the unemployment report:
-
-'''sh
-python unemployment.py 
-'''
-
-ALTERNATIVE WITH IMPORTS
-'''sh
-python -m unemployment.py 
-'''
-
-'''sh
-python my_mod.py
-'''
+```
 
 
-# Install packages:
-'''sh 
+Install packages:
+
+```sh
 pip install -r requirements.txt
-'''
+```
 
-# Interactive console:
-'''sh
-python -i
-'''
+Obtain an [API Key from Alphav antage](https://www.alphavantage.co/support/#api-key) or from the prof (`ALPHAVANTAGE_API_KEY`).
 
-'''SH
-python EMAIL_SERVICE.PY
-'''
+Follow the [setup instructions](https://github.com/prof-rossetti/intro-to-python/blob/main/notes/python/packages/sendgrid.md) to create an account, verify your account, setup a single sender, and obtain an API Key.
+
+Create a ".env" file and paste in the following contents:
+
+```sh
+# this is the ".env" file...
+
+ALPHAVANTAGE_API_KEY="_________"
+
+SENDGRID_API_KEY="_________"
+SENDER_ADDRESS="example.gmail.com"
+```
+
+## Usage
+
+Run the example script:
+
+```sh
+python app/my_script.py
+```
+
+Run the unemployment report:
+
+```sh
+#python app/unemployment.py
+
+python -m app.unemployment
+```
+
+Send an example email:
 
 
-# testing
+```sh
+python app/email_service.py
+```
 
 
+## Testing
 
+Run tests:
 
+```sh
+pytest
+```
