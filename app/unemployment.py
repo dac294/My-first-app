@@ -24,33 +24,35 @@ API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
 
 #breakpoint()
 #quit()
+def fetch_data():
+    request_url = f"https://www.alphavantage.co/query?function=UNEMPLOYMENT&apikey={API_KEY}"
+
+    response = requests.get(request_url)
+
+    parsed_response = json.loads(response.text)
+    print(type(parsed_response))
+    print(parsed_response.keys())
+
+    data = parsed_response["data"]
+    return data 
 
 
-
-request_url = f"https://www.alphavantage.co/query?function=UNEMPLOYMENT&apikey={API_KEY}"
-
-response = requests.get(request_url)
-
-parsed_response = json.loads(response.text)
-print(type(parsed_response))
-print(parsed_response.keys())
-#pprint(parsed_response)
-
-data = parsed_response["data"]
+if __name__ == "__main__":
+    data = fetch_data()
 
 # Challenge A
 #
 # What is the most recent unemployment rate? And the corresponding date?
 # Display the unemployment rate using a percent sign.
 
-print("-------------------------")
-print("LATEST UNEMPLOYMENT RATE:")
-#print(data[0])
+    print("-------------------------")
+    print("LATEST UNEMPLOYMENT RATE:")
+    #print(data[0])
 
-latest_rate = data[0]['value']
-latest_date = data[0]["date"]
+    latest_rate = data[0]['value']
+    latest_date = data[0]["date"]
 
-print(f"{data[0]['value']}%", "as of", data[0]["date"])
+    print(f"{data[0]['value']}%", "as of", data[0]["date"])
 
 
 # Challenge B
@@ -60,14 +62,14 @@ print(f"{data[0]['value']}%", "as of", data[0]["date"])
 
 
 
-this_year = [d for d in data if "2023-" in d["date"]]
+    this_year = [d for d in data if "2023-" in d["date"]]
 
-rates_this_year = [float(d["value"]) for d in this_year]
-#print(rates_this_year)
+    rates_this_year = [float(d["value"]) for d in this_year]
+    #print(rates_this_year)
 
-print("-------------------------")
-print("AVG UNEMPLOYMENT THIS YEAR:", f"{round(mean(rates_this_year), 2)}%")
-print("NO MONTHS:", len(this_year))
+    print("-------------------------")
+    print("AVG UNEMPLOYMENT THIS YEAR:", f"{round(mean(rates_this_year), 2)}%")
+    print("NO MONTHS:", len(this_year))
 
 
 # Challenge C
@@ -76,63 +78,20 @@ print("NO MONTHS:", len(this_year))
 
 
 
-dates = [d["date"] for d in data]
-rates = [float(d["value"]) for d in data]
+    dates = [d["date"] for d in data]
+    rates = [float(d["value"]) for d in data]
 
-fig = line(x=dates, y=rates, title="United States Unemployment Rate over time", labels= {"x": "Month", "y": "Unemployment Rate"})
-fig.show()
+    fig = line(x=dates, y=rates, title="United States Unemployment Rate over time", labels= {"x": "Month", "y": "Unemployment Rate"})
+    fig.show()
 
-content = f"""
-<h1> Unemployment Report Email </h1>
+    user_address = input("please enter your email address: ")
 
-<p> Latest rate: {latest_rate}% as of {latest_date} </p>
-"""
+    content = f"""
+    <h1> Unemployment Report Email </h1>
 
-
-
-
-sorted_data = sorted(data, key=(itemgetter("date"))) # sort first, then split
-sorted_dates = [d["date"] for d in sorted_data]
-sorted_rates = [float(d["value"]) for d in sorted_data]
-
-plt.figure(figsize=(10, 6))  # Set the figure size
-plt.plot(sorted_dates, sorted_rates, marker='o', linestyle='-', color='b', label="Unemployment Rate")
-plt.title("United States Unemployment Rate over time")
-plt.xlabel("Month")
-plt.ylabel("Unemployment Rate")
-plt.grid(True)
-plt.show()
-
-
-
-
-
-
-
-#def format_pct(my_number:float) -> str:
-
-def format_pct(my_number):
+    <p> Latest rate: {latest_rate}% as of {latest_date} </p>
     """
-        Formats a percentage number like 3.6555554 as percent, rounded to two decimal places.
 
-        Param my_number (float) like 3.6555554
+    send_email(recipient_address=user_address,html_content=content,subject="Your Unemployment Report")
 
-        Returns (str) like '3.66%'
-    """
-    return f"{my_number:.2f}%"
-
-
-print(format_pct(3.65554))
-
-print(format_pct(25.4))
-
-result = format_pct(25.4)
-print(result)
-
-
-assert format_pct(3.65554) == '3.66%'
-assert format_pct(25.4) == '25.40%'
-
-result = format_pct(25.4)
-assert result == '25.40%'
 

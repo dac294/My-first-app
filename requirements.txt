@@ -2,10 +2,18 @@
 
 
  
-pytest
+requests
 
 plotly
-matplotlib
+
+# ImportError
 pandas
-python-env
+
+python-dotenv
+
 sendgrid==6.5.0
+
+
+# TEST
+
+pytest

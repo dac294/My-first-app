@@ -1,7 +1,7 @@
 
 import os
 
-from .env import load_dotenv
+from dotenv import load_dotenv
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
@@ -40,7 +40,7 @@ def send_email(recipient_address=SENDER_ADDRESS, subject="[Shopping Cart App] Te
     
 
 # integration test - can go check email 
-if __name == "__main__":
+if __name__ == "__main__":
     #ONLY WANT TO DO IF RUNNING THIS FILE FROM COMMAND LINE 
     # NOT IF IMPORTING FUNCTION FROM THIS FILE
     user_address = input("please enter your email address:")
