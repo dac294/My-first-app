@@ -1,17 +1,18 @@
-from getpass import getpass
-import requests
+
+# IMPORTS AT THE TOP
+
+import os
 import json
 from pprint import pprint
 from statistics import mean
-from plotly.express import line #FIX THIS!!!!!!!
-from operator import itemgetter
-import matplotlib.pyplot as plt
-import os
-from dotenv import load_dotenv #AND FIX THIS!!!
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail 
-from email_service import send_email
 
+from dotenv import load_dotenv
+import requests
+from plotly.express import line
+
+from app.email_service import send_email
+
+print("BACK IN UNEMPLOYMENT FILE")
 
 load_dotenv() # gto look in the .env file for any env vars 
 
