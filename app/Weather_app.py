@@ -25,24 +25,20 @@ def get_data():
 	print(request_url)
 	response = requests.get(request_url)
 	parsed_response = json.loads(response.text)
-	print(response.status_code)
 	forecast_url = parsed_response["properties"]["forecast"]
-	print(forecast_url)
 	forecast_response = requests.get(forecast_url)
 	parsed_forecast_response = json.loads(forecast_response.text)
 
 	periods = parsed_forecast_response["properties"]["periods"]
 
 	daytime_periods = [period for period in periods if period["isDaytime"] == True]
-	print(daytime_periods)
-	for period in daytime_periods:
-	    #print(period.keys())
-	    print("-------------")
-	    print(period["name"], period["startTime"][0:7])
-	    print(period["shortForecast"], f"{period['temperature']} {DEGREE_SIGN}{period['temperatureUnit']}")
-	    #print(period["detailedForecast"])
-	    display(Image(url=period["icon"]))
 
+	# Extracting temperature from the first daytime period
+	temperature = daytime_periods[0]["temperature"]
+
+	# Extracting detailed forecast from the first daytime period
+	detailed_forecast = daytime_periods[0]["detailedForecast"]
+	return detailed_forecast
 
 
 
@@ -54,7 +50,10 @@ if __name__ == "__main__":
     content = f"""
     <h1> Weather Report Email </h1>
 
-    <p> {data} </p>
+    <p> 
+    	today is expected to be {data}
+   
+     </p>
     """
 
     send_email(recipient_address=user_address,html_content=content,subject="Weather Report")

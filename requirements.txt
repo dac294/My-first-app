@@ -2,17 +2,20 @@
 
 
  
-requests
+pytest
 
 plotly
-
-# ImportError
+matplotlib
 pandas
-
-python-dotenv
 
 sendgrid==6.5.0
 
+dotenv
+
+pgeocode
+json
+
+Ipython
 
 # TEST
 
