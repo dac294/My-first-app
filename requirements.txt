@@ -20,3 +20,6 @@ Ipython
 # TEST
 
 pytest
+
+# web app
+flask

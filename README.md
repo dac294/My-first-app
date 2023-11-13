@@ -3,7 +3,10 @@
 as long as we are in the root dir of the repo:
 
 run the code:
-'''python my_script.py
+```sh 
+python my_script.py
+```
+
 
 ## setup
 
@@ -37,17 +40,28 @@ pip install -r requirements.txt
 '''
 
 # Interactive console:
-'''sh
+```sh
 python -i
-'''
+```
 
-'''SH
+```SH
 python EMAIL_SERVICE.PY
-'''
+```
 
 
 # testing
 
+## web app 
+```sh
+FYI: we'll be running the application using the following Flask command (not a Python command):
 
+# Mac OS:
+FLASK_APP=web_app flask run
 
+# Windows OS:
+# ... if `export` doesn't work for you, try `set` instead
+# ... or try a ".env" file approach
+export FLASK_APP=web_app
+flask run
+```
 
