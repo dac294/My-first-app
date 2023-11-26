@@ -33,3 +33,24 @@ def hello_world():
     message = f"Hello, {name}!"
     return message
     #return render_template("hello.html", message=message)
+
+
+@home_routes.route("/api/books.json")
+def books():
+    print("BOOKS...")
+    books = [
+        {"id":1, "title": "Harry Potter", "author": "JK Rowling"},
+        {"id":1, "title": "Lord of the Rings", "author": "JR Tolkein"},
+        {"id":1, "title": "The Hunger Games", "author": "Suzanne Collins"}, 
+    ]
+    return books
+    #return render_template("about.html")
+
+
+
+# notes
+    # ? means there are URL parameters 
+    # URL params are separated by '&'
+    #EXAMPLE: http://localhost:5000/hello?name=John&school=georgetown
+    #.get() is basically a try/except function
+    #%20 is URL parameter meaning for space 
