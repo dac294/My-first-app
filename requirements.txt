@@ -10,7 +10,7 @@ pandas
 
 sendgrid==6.5.0
 
-dotenv
+python-dotenv
 
 pgeocode
 json
